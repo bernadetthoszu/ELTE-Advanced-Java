@@ -10,5 +10,12 @@ public class WeekdayMain {
 		
 		System.out.println(Weekday.TUESDAY.getName("hu"));
 		System.out.println(Weekday.TUESDAY.getName("es"));
+		System.out.println(Weekday.SATURDAY.getName("es"));
+		System.out.println(Weekday.FRIDAY.getName("hu"));
+		
+		System.out.println(Weekday2.TUESDAY.getName("hu"));
+		System.out.println(Weekday2.TUESDAY.getNextDay().getName("es"));
+		System.out.println(Weekday2.TUESDAY.getNextDay().getName("de"));
+		
 	}
 }

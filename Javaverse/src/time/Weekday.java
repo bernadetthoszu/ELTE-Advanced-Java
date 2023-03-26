@@ -3,9 +3,9 @@ package time;
 import java.util.Arrays;
 
 public enum Weekday {
-	MONDAY(new String[]{"Hetfo", "Lunes"}), TUESDAY("Kedd", "Martes"), WEDNESDAY("Szerda", "Miercoles"), THURSDAY("Csutortok", "Jueves"), FRIDAY("Pentek", "Viernes"), SATURDAY, SUNDAY;
+	MONDAY(new String[]{"Lunes", "Hetfo"}), TUESDAY("Martes", "Kedd"), WEDNESDAY("Miercoles", "Szerda"), THURSDAY("Jueves", "Csutortok"), FRIDAY("Viernes"), SATURDAY, SUNDAY;
 	
-	private String[] langs = {"hu", "es"};
+	private static String[] langs = {"es", "hu"};
 	
 	private String[] names;
 	//private String lang1Name;
@@ -14,6 +14,7 @@ public enum Weekday {
 	private Weekday() {
 		//this.lang1Name = "nap";
 		//this.lang2Name = "dia";
+		
 	}
 	
 	//private Weekday(String[] names) {
@@ -27,15 +28,6 @@ public enum Weekday {
 	public Weekday getNextDay(){
 		return getDaysAfter(1);
 	}
-	
-//	public String getLang1Name() {
-//		return lang1Name;
-//	}
-//
-//
-//	public String getLang2Name() {
-//		return lang2Name;
-//	}
 
 	public Weekday getDaysAfter(int dayCount){
 		//int weekdayCount = 7;
@@ -45,7 +37,13 @@ public enum Weekday {
 	}
 	
 	public String getName(String lang) {
+		if (names == null) {
+			return "?";
+		}
 		int langIdx = Arrays.binarySearch(langs, lang);
+		if (langIdx >= names.length) {
+			return "?";
+		}
 		return names[langIdx];
 	}
 }
