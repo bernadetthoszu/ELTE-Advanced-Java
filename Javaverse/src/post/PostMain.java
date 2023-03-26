@@ -1,5 +1,6 @@
 package post;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,17 +27,18 @@ public class PostMain {
 		
 		
 		Mail mail = new Mail("Magyar Posta");  //Ctrl+1
+		LocalDate date = LocalDate.of(2015, 02, 20);
 //		po2.receive(mail);
 //		po2.receive(mail);
 //		po2.receive(mail);
 //		po2.receive(mail);
 //		po2.receive(mail);
 		
-		po3.receive(mail);
-		po3.receive(mail);
-		po3.receive(mail);
-		po3.receive(mail);
-		po3.receive(mail);
+		po3.receive(mail, date);
+		po3.receive(mail, date);
+		po3.receive(mail, date);
+		po3.receive(mail, date);
+		po3.receive(mail, date);
 		
 		Mail mail1 = new Mail(City.NEW_YORK_CITY, zipCodeToOffice);
 		System.out.println(mail1.getTargetPostOffice());

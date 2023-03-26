@@ -2,7 +2,7 @@ package city;
 
 public enum City {
 	NEW_YORK_CITY("10001"), LONDON(5208), PARIS(70123), MADRID(28001), BUDAPEST(1007), LONG_ISLAND(NEW_YORK_CITY);
-//	NEW_YORK(BUDAPEST), LONDON(19732), PARIS, MADRID, BUDAPEST(NEW_YORK);  -- cannot reference a foeld before it is defined
+//	NEW_YORK(BUDAPEST), LONDON(19732), PARIS, MADRID, BUDAPEST(NEW_YORK);  -- cannot reference a field before it is defined
 	
 	private int zipCode;
 	

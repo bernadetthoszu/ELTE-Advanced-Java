@@ -1,5 +1,6 @@
 package post;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,9 +32,9 @@ public class PostOffice {
 		this.name = name;
 	}
 	
-	public void receive(Mail mail) {
+	public void receive(Mail mail, LocalDate date) {
 		if (mail.getTargetPostOffice().equals(name)) {
-			//System.out.println("DONE " + name);
+			System.out.println("DONE " + name + " at " + date.toString());
 			var mailboxIdx = incomingMailIdx % mailboxes.length;
 			++incomingMailIdx;
 			
@@ -43,11 +44,11 @@ public class PostOffice {
 		}
 		
 		var forward = forwarding.get(mail.getTargetPostOffice());
-		if (forward == null) {  //if we call get(key) on a map, and key is not found, the received value will be null
-			System.out.println("DISCARDING " + mail);
+		if (forward == null) {
+			System.out.println("DISCARDING " + mail+ " at " + date.toString());
 			return;
 		}
-		forward.receive(mail);
+		forward.receive(mail, date.plusDays(1));
 		
 	}
 	
